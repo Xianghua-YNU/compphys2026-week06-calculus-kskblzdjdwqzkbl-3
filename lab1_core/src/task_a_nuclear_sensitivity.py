@@ -7,15 +7,19 @@ def rate_3alpha(T: float) -> float:
 
 
 def finite_diff_dq_dT(T0: float, h: float = 1e-8) -> float:
-    # TODO A1: 使用前向差分实现 dq/dT
-    raise NotImplementedError("TODO A1")
+    # 使用前向差分实现 dq/dT
+    q0 = rate_3alpha(T0)
+    q1 = rate_3alpha(T0 + h)
+    return (q1 - q0) / h
 
 
 def sensitivity_nu(T0: float, h: float = 1e-8) -> float:
-    # TODO A2: 根据 nu = (T/q) * dq/dT 计算温度敏感性指数
-    raise NotImplementedError("TODO A2")
+    # 根据 nu = (T/q) * dq/dT 计算温度敏感性指数
+    q = rate_3alpha(T0)
+    dq_dT = finite_diff_dq_dT(T0, h)
+    return (T0 / q) * dq_dT
 
 
 def nu_table(T_values, h: float = 1e-8):
-    # TODO A3: 返回 [(T, nu(T)), ...]
-    raise NotImplementedError("TODO A3")
+    # 返回 [(T, nu(T)), ...]
+    return [(T, sensitivity_nu(T, h)) for T in T_values]
