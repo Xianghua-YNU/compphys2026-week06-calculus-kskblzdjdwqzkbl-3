@@ -31,8 +31,6 @@ def rate_3alpha(T: float) -> float:
     except:
         return 0.0  # 捕获所有计算异常，返回合法值
 
-
-
 def finite_diff_dq_dT(T0: float, h: float = 1e-8) -> float:
     # 使用前向差分实现 dq/dT
     q0 = rate_3alpha(T0)
