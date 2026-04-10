@@ -44,13 +44,12 @@ def sensitivity_nu(T0: float, h: float = 1e-8) -> float:
     dq_dT = finite_diff_dq_dT(T0, h)
     return (T0 / q) * dq_dT
 
-
 def nu_table(T_values, h: float = 1e-8):
     # 返回 [(T, nu(T)), ...]
     return [(T, sensitivity_nu(T, h)) for T in T_values]
 
     # TODO A1: 使用前向差分实现 dq/dT
-     """
+    """
     使用前向差分法计算 dq/dT 在T0处的导数
     核心修复：h是相对增量（h*T0），避免绝对增量错误
     """
