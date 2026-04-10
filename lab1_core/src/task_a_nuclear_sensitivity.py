@@ -2,7 +2,6 @@ import numpy as np
 import warnings
 warnings.filterwarnings('ignore')  # 屏蔽数值计算警告（避免干扰测试输出）
 
-
 def rate_3alpha(T: float) -> float:
     """
     计算恒星中3-α反应的温度相关反应率 q(T)
@@ -31,7 +30,6 @@ def rate_3alpha(T: float) -> float:
         return float(q)  # 强制转为float，避免numpy类型问题
     except:
         return 0.0  # 捕获所有计算异常，返回合法值
-
 
 
 
